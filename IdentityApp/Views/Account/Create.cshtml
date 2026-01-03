@@ -1,0 +1,78 @@
+@model CreateViewModels
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+
+        <div class="card shadow-sm border-0 rounded-3 mt-4">
+
+            <div class="card-header bg-white border-bottom py-3">
+                <h5 class="card-title mb-0 text-primary fw-bold">
+                    <i class="bi bi-person-plus-fill me-2"></i>Yeni Kullanıcı Oluştur
+                </h5>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-controller="Account" asp-action="Create" method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3 small"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="UserName" class="form-label text-secondary small fw-bold text-uppercase">Kullanıcı Adı</label>
+                        <input asp-for="UserName" class="form-control" placeholder="Örn: ahmet123" />
+                        <span asp-validation-for="UserName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FullName"
+                            class="form-label text-secondary small fw-bold text-uppercase">Tam Ad</label>
+                        <input asp-for="FullName" class="form-control" placeholder="Örn:ahmet can" />
+                        <span asp-validation-for="FullName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label text-secondary small fw-bold text-uppercase">Email
+                            Adresi</label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="ornek@email.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password"
+                            class="form-label text-secondary small fw-bold text-uppercase">Şifre</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="ConfirmPassword"
+                            class="form-label text-secondary small fw-bold text-uppercase">Şifre Tekrar</label>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 border-top pt-3">
+                        <a asp-action="Index" class="btn btn-light rounded-pill px-4 text-secondary border">
+                            İptal
+                        </a>
+
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm">
+                            <i class="bi bi-check-lg me-1"></i> Kaydet
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    // Form gönderildiğinde çalışır
+    document.querySelector('form').addEventListener('submit', function (e) {
+        var btn = this.querySelector('button[type="submit"]');
+
+        // Butonu devre dışı bırak ve yazısını değiştir
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Kaydediliyor...';
+    });
+</script>
