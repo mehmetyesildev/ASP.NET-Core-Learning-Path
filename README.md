@@ -62,7 +62,7 @@ A **secure, full-featured membership system** built with **ASP.NET Core Identity
 | **IDE & Tools** | Visual Studio Code, Git |
 
 ---
-### 👨‍💻 Geliştirici
+### 👨‍💻 Author
 
 **Mehmet Yeşil** - Bilgisayar Mühendisi
 
