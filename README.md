@@ -5,44 +5,54 @@
 ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Entity Framework](https://img.shields.io/badge/Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
 
-Bu repository, **ASP.NET Core 8** mimarisini, modern web geliştirme tekniklerini ve veritabanı yönetim süreçlerini adım adım öğrenmek amacıyla geliştirdiğim projelerin kaynak kodlarını içerir.
+This repository contains a structured collection of projects demonstrating my journey in mastering **ASP.NET Core 8** architecture, modern web development patterns, and database management processes.
 
-Projeler, temel **MVC** yapısından başlayarak; form yönetimi, validasyonlar, dosya yükleme işlemleri ve **Entity Framework Core** ile ilişkisel veritabanı mimarisine kadar uzanan teknik bir serüveni kapsar.
+The projects evolve from basic **MVC** principles to complex scenarios including advanced form handling, validation, file management, and a full-featured security system using **ASP.NET Core Identity**.
 
 ---
 
-## 📂 İçerikteki Projeler ve Teknik Kazanımlar
+## 📂 Modules & Technical Competencies
 
-Bu repo altında, her biri farklı bir yetkinliği hedefleyen 4 ana modül bulunmaktadır:
+This path consists of 4 main modules, each targeting a specific set of backend skills:
 
-### 1️⃣ Basics & MeetingApp (MVC Temelleri)
-ASP.NET Core dünyasına giriş ve Model-View-Controller (MVC) deseninin kavranması.
-* **Routing:** URL yapılandırması ve Controller-Action mekanizması.
-* **Razor Syntax:** HTML içerisinde dinamik C# kodlarının işlenmesi.
-* **Layouts & Sections:** Tekrar kullanılabilir arayüz şablonlarının (Master Page) oluşturulması.
-* **ViewBag & ViewData:** Controller'dan View'a veri taşıma yöntemleri.
+### 1️⃣ Basics & MeetingApp (MVC Fundamentals)
+Introduction to the ASP.NET Core ecosystem and the Model-View-Controller (MVC) design pattern.
+* **Routing:** Custom URL configurations and Controller-Action mechanisms.
+* **Razor Syntax:** Dynamic C# code integration within HTML views.
+* **Layouts & Sections:** Creating reusable UI templates (Master Pages) for maintainability.
+* **Data Transfer:** Managing data flow using `ViewBag`, `ViewData`, and ViewModels.
 
-### 2️⃣ FormsApp (İleri Seviye Form Yönetimi)
-Kullanıcı etkileşimi, veri girişi ve güvenli veri işleme süreçleri.
-* **Model Binding:** Form verilerinin (QueryString, FormCollection) nesnelerle otomatik eşleştirilmesi.
-* **Tag Helpers:** `asp-for`, `asp-controller` gibi helper yapıları ile temiz HTML yazımı.
-* **Server-Side Validation:** Data Annotations (`[Required]`, `[StringLength]`) ile sunucu taraflı veri doğrulama.
-* **File Upload:** Ürün görsellerinin sunucuya güvenli bir şekilde yüklenmesi ve yönetimi.
+### 2️⃣ FormsApp (Advanced Form Management)
+Handling user interactions, data entry, and secure data processing.
+* **Model Binding:** Automatic mapping of HTTP request data (QueryString, FormCollection) to objects.
+* **Tag Helpers:** Utilizing `asp-for` and `asp-controller` for clean and readable HTML generation.
+* **Server-Side Validation:** Implementing strict data validation using Data Annotations (`[Required]`, `[StringLength]`).
+* **File Upload:** Securely handling and storing product images on the server.
 
-### 3️⃣ EfCoreApp (Veritabanı & ORM)
-Veri kalıcılığı için **Entity Framework Core** kullanımı ve SQL süreçlerinin yönetimi.
-* **Code-First Approach:** Veritabanı tablolarının C# sınıfları (Entity) üzerinden tasarlanması.
-* **Migrations:** Veritabanı şemasındaki değişikliklerin (`add-migration`) kod üzerinden yönetilmesi.
+### 3️⃣ EfCoreApp (Database & ORM)
+Data persistence implementation using **Entity Framework Core** and SQL operations.
+* **Code-First Approach:** Designing database schemas through C# Entity classes.
+* **Migrations:** Managing database schema changes professionally via CLI (`add-migration`).
 * **Relational Database:**
-  * **One-to-Many:** (Örn: Bir Öğretmenin birden fazla Kursu olabilir.)
-  * **Many-to-Many:** (Örn: Bir Öğrenci çok kursa, bir Kurs çok öğrenciye sahip olabilir.)
-* **LINQ:** Veri sorgulama, filtreleme ve Join işlemleri.
+    * **One-to-Many:** (e.g., An Instructor can have multiple Courses.)
+    * **Many-to-Many:** (e.g., Students can enroll in multiple Courses.)
+* **LINQ:** Advanced data querying, filtering, and joining operations.
+
+### 4️⃣ IdentityApp (Identity & Security Module)
+A **secure, full-featured membership system** built with **ASP.NET Core Identity**.
+* **Automated Database Seeding:** Automatic creation of default Admin user and Roles upon startup.
+* **Role-Based Access Control (RBAC):** Dynamic Role management and assigning roles to users.
+* **Secure Authentication:** Utilized `UserManager` and `SignInManager` for secure login/logout flows.
+* **User Management:** Full CRUD operations for user profiles and details.
+* **Email Services:** Integrated SMTP for **Account Confirmation** workflows.
+* **Password Security:** Secure **Forgot Password & Reset** mechanism using token validation.
+* **Authorization:** Implemented Controller and Action-level security policies (`[Authorize]`).
 
 ---
 
-## 🛠️ Teknoloji Yığını (Tech Stack)
+## 🛠️ Tech Stack
 
-| Kategori | Teknoloji / Araç |
+| Category | Technology / Tool |
 |----------|------------------|
 | **Backend** | .NET 8.0, C# 12 |
 | **Framework** | ASP.NET Core MVC |
@@ -52,9 +62,8 @@ Veri kalıcılığı için **Entity Framework Core** kullanımı ve SQL süreçl
 | **IDE & Tools** | Visual Studio Code, Git |
 
 ---
-
 ### 👨‍💻 Geliştirici
 
 **Mehmet Yeşil** - Bilgisayar Mühendisi
 
-🔗 **LinkedIn:** [https://www.linkedin.com/in/mehmet-yesil/]
+🔗 **LinkedIn:** [Mehmet Yeşil](https://www.linkedin.com/in/mehmet-yesil/)
