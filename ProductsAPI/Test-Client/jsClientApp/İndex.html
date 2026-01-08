@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern API Client - Full CRUD</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #f4f4f9;
+        }
+
+        h2,
+        h4 {
+            color: #333;
+        }
+
+        /* Panel Tasarımı */
+        .panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Inputlar */
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 5px;
+            width: 150px;
+        }
+
+        /* Butonlar */
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-right: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .btn-blue {
+            background-color: #007bff;
+        }
+
+        .btn-green {
+            background-color: #28a745;
+        }
+
+        .btn-orange {
+            background-color: #fd7e14;
+        }
+
+        .btn-red {
+            background-color: #dc3545;
+        }
+
+        /* Kartlar */
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background: white;
+            border-left: 5px solid #007bff;
+        }
+
+        /* Mesaj Alanı */
+        .status {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🛠️ Product API - Yönetim Paneli</h2>
+
+    <div class="panel">
+        <h4>1. Giriş Yap (Önce Burası!)</h4>
+        <button onclick="login()" class="btn-blue">🔑 Login (Token Al)</button>
+        <button onclick="logout()" class="btn-red">🚪 Çıkış Yap (Token Sil)</button>
+
+        <span id="loginStatus" style="margin-left: 10px; font-weight: bold; color: gray;">Durum kontrol
+            ediliyor...</span>
+    </div>
+
+    <div class="panel">
+        <h4>2. Ürün İşlemleri</h4>
+        <input type="number" id="txtId" placeholder="ID (Güncelle/Sil için)">
+        <input type="text" id="txtName" placeholder="Ürün Adı">
+        <input type="number" id="txtPrice" placeholder="Fiyat">
+        <br><br>
+
+        <button onclick="getProducts()" class="btn-blue">📦 Listele</button>
+        <button onclick="createProduct()" class="btn-green">➕ Ekle (POST)</button>
+        <button onclick="updateProduct()" class="btn-orange">✏️ Güncelle (PUT)</button>
+        <button onclick="deleteProduct()" class="btn-red">🗑️ Sil (DELETE)</button>
+    </div>
+
+    <div id="statusMessage" class="status"></div>
+    <div id="divProducts"></div>
+
+    <script>
+        const API_URL = "http://localhost:5268/api";
+
+        // Yardımcı: Mesaj Göster
+        const showMessage = (msg, type = "success") => {
+            const el = document.getElementById("statusMessage");
+            el.innerHTML = msg;
+            el.style.display = "block";
+            el.className = `status ${type}`;
+            setTimeout(() => { el.style.display = "none"; }, 3000);
+        }
+
+        const getToken = () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                showMessage("⚠️ Önce Login olmalısınız!", "error");
+                return null;
+            }
+            return token;
+        }
+
+        window.onload = () => {
+            const token = localStorage.getItem("token");
+            const statusLabel = document.getElementById("loginStatus");
+            if (token) {
+                statusLabel.innerText = "✅ Daha önce giriş yapılmış";
+                statusLabel.style.color = "green";
+            } else {
+                statusLabel.innerText = "🔴 Giriş yapılmamış";
+                statusLabel.style.color = "red";
+            }
+        }
+
+        // --- 1. LOGIN ---
+        const login = async () => {
+            try {
+                const response = await fetch(`${API_URL}/users/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: 'info@mehmetyesil.com', password: '123456' })
+                });
+
+                if (!response.ok) throw new Error("Giriş Başarısız!");
+                const result = await response.json();
+
+                if (result.token) {
+                    localStorage.setItem("token", result.token);
+                    const statusLabel = document.getElementById("loginStatus");
+                    statusLabel.innerText = "✅ Giriş Yapıldı!";
+                    statusLabel.style.color = "green";
+                    showMessage("Giriş Başarılı!");
+                }
+            } catch (error) {
+                showMessage("Login Hatası: " + error.message, "error");
+            }
+        }
+
+        // --- ÇIKIŞ YAP ---
+        const logout = () => {
+            localStorage.removeItem("token");
+            const statusLabel = document.getElementById("loginStatus");
+            statusLabel.innerText = "🔴 Çıkış Yapıldı";
+            statusLabel.style.color = "red";
+            showMessage("Başarıyla çıkış yapıldı.", "error");
+        }
+
+        // --- 2. LİSTELE (GET) ---
+        const getProducts = async () => {
+            try {
+                const response = await fetch(`${API_URL}/products`);
+                const products = await response.json();
+
+                const parent = document.getElementById("divProducts");
+                parent.innerHTML = products.map(prd => `
+                    <div class="card">
+                        <b>ID: ${prd.productId}</b> - ${prd.productName} 
+                        <span style="float:right; font-weight:bold;">${prd.price} TL</span>
+                    </div>
+                `).join('');
+
+                showMessage(`${products.length} ürün listelendi.`);
+            } catch (error) {
+                showMessage("Listeleme Hatası: " + error.message, "error");
+            }
+        }
+
+        // --- 3. EKLE (POST) ---
+        const createProduct = async () => {
+            const token = getToken(); if (!token) return;
+
+            const name = document.getElementById("txtName").value;
+            const price = document.getElementById("txtPrice").value;
+
+            try {
+                const response = await fetch(`${API_URL}/products`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ productName: name, price: Number(price), isActive: true })
+                });
+
+                if (!response.ok) throw new Error("Ekleme başarısız!");
+
+                const newProduct = await response.json();
+                showMessage(`✅ ${newProduct.productName} başarıyla eklendi!`);
+                getProducts();
+            } catch (error) {
+                showMessage("Ekleme Hatası: " + error.message, "error");
+            }
+        }
+
+        // --- 4. GÜNCELLE (PUT) ---
+        const updateProduct = async () => {
+            const token = getToken(); if (!token) return;
+
+            const id = document.getElementById("txtId").value;
+            const name = document.getElementById("txtName").value;
+            const price = document.getElementById("txtPrice").value;
+
+            if (!id) { showMessage("Güncellemek için ID giriniz!", "error"); return; }
+
+            try {
+                const response = await fetch(`${API_URL}/products/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ productId: id, productName: name, price: Number(price), isActive: true })
+                });
+
+                if (!response.ok) throw new Error("Güncelleme başarısız!");
+
+                showMessage(`✅ ID:${id} başarıyla güncellendi!`);
+                getProducts();
+            } catch (error) {
+                showMessage("Güncelleme Hatası: " + error.message, "error");
+            }
+        }
+
+        // --- 5. SİL (DELETE) ---
+        const deleteProduct = async () => {
+            const token = getToken(); if (!token) return;
+            const id = document.getElementById("txtId").value;
+
+            if (!id) { showMessage("Silmek için ID giriniz!", "error"); return; }
+            if (!confirm("Silmek istediğine emin misin?")) return;
+
+            try {
+                const response = await fetch(`${API_URL}/products/${id}`, {
+                    method: "DELETE",
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error("Silme başarısız!");
+
+                showMessage(`🗑️ ID:${id} silindi!`);
+                getProducts();
+            } catch (error) {
+                showMessage("Silme Hatası: " + error.message, "error");
+            }
+        }
+    </script>
+</body>
+
+</html>
