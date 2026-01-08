@@ -3,8 +3,6 @@
 ![Web API](https://img.shields.io/badge/Architecture-Web%20API-blue?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-JWT%20%26%20Identity-green?style=for-the-badge&logo=json-web-tokens)
 ![Entity Framework](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=nuget&logoColor=white)
-![Database](https://img.shields.io/badge/Database-SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 
