@@ -1,10 +1,10 @@
 # 🚀 ASP.NET Core 8.0 - Backend Learning Path
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![MVC](https://img.shields.io/badge/Architecture-ASP.NET_MVC-orange?style=for-the-badge)
 ![Web API](https://img.shields.io/badge/Architecture-Web%20API-blue?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-JWT%20%26%20Identity-green?style=for-the-badge&logo=json-web-tokens)
-![Entity Framework](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=nuget&logoColor=white)
-![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+![ORM](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=nuget&logoColor=white)
+![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 Bu repository, **ASP.NET Core 8** mimarisini, modern web geliştirme tekniklerini, güvenli API altyapılarını ve veritabanı yönetim süreçlerini adım adım öğrenmek amacıyla geliştirdiğim projelerin kaynak kodlarını içerir.
 
