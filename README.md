@@ -1,6 +1,7 @@
 # 🚀 ASP.NET Core 8.0 - Backend Learning Path
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![MVC](https://img.shields.io/badge/Architecture-ASP.NET_MVC-orange?style=for-the-badge)
+![Razor Pages](https://img.shields.io/badge/Architecture-Razor_Pages-ff69b4?style=for-the-badge)
 ![Web API](https://img.shields.io/badge/Architecture-Web%20API-blue?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-JWT%20%26%20Identity-green?style=for-the-badge&logo=json-web-tokens)
 ![ORM](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=nuget&logoColor=white)
@@ -8,13 +9,13 @@
 
 Bu repository, **ASP.NET Core 8** mimarisini, modern web geliştirme tekniklerini, güvenli API altyapılarını ve veritabanı yönetim süreçlerini adım adım öğrenmek amacıyla geliştirdiğim projelerin kaynak kodlarını içerir.
 
-Projeler, temel **MVC** yapısından başlayarak; form yönetimi, validasyonlar, **RESTful API** tasarımı ve **JWT (JSON Web Token)** tabanlı güvenlik mimarisine kadar uzanan teknik bir serüveni kapsar.
+Projeler, temel **MVC** yapısından başlayarak; form yönetimi, validasyonlar, **Razor Pages** mimarisi, **RESTful API** tasarımı ve **JWT (JSON Web Token)** tabanlı güvenlik mimarisine kadar uzanan teknik bir serüveni kapsar.
 
 ---
 
 ## 📂 İçerikteki Projeler ve Teknik Kazanımlar
 
-Bu repo altında, her biri farklı bir yetkinliği hedefleyen 4 ana modül bulunmaktadır:
+Bu repo altında, her biri farklı bir yetkinliği hedefleyen 5 ana modül bulunmaktadır:
 
 ### 1️⃣ Basics & MeetingApp (MVC Temelleri)
 ASP.NET Core dünyasına giriş ve Model-View-Controller (MVC) deseninin kavranması.
@@ -50,6 +51,15 @@ Modern SPA (Single Page Application) ve Mobil uygulamalar için veri sağlayan g
   * **CORS Policies:** Farklı domainlerden (Client) gelen isteklere izin verilmesi.
   * **Client Consumption:** JavaScript `Fetch API` kullanılarak yazılmış **Test İstemcisi** ile Token tabanlı veri alışverişi simülasyonu.
 
+### 5️⃣ RazorPagesApp (Mimari Desenler & Repository Pattern)
+MVC desenine alternatif olan sayfa odaklı (Page-Centric) mimarinin kavranması ve kurumsal kodlama standartlarının uygulanması.
+* **Razor Pages Architecture:** Controller olmadan, `PageModel` yapısı ve **Code-Behind** mantığı ile geliştirme.
+* **Repository Design Pattern:** Veri erişim katmanının (Data Access Layer) soyutlanması ve iş mantığından ayrıştırılması.
+* **Dependency Injection (DI) & Lifecycles:**
+  * **Singleton:** Mock verilerle çalışırken RAM tabanlı veri sürekliliği.
+  * **Transient:** SQL Server geçişinde veritabanı bağlantı yönetimi ve yaşam döngüsü yönetimi.
+* **SQL Server Integration:** Entity Framework Core ile Code-First yaklaşımı kullanılarak MSSQL veritabanı entegrasyonu.
+
 ---
 
 ## 🛠️ Teknoloji Yığını (Tech Stack)
@@ -57,7 +67,7 @@ Modern SPA (Single Page Application) ve Mobil uygulamalar için veri sağlayan g
 | Kategori | Teknoloji / Araç |
 |----------|------------------|
 | **Backend** | .NET 8.0, C# 12 |
-| **Architectures** | MVC, RESTful API |
+| **Architectures** | MVC, Razor Pages, RESTful API |
 | **Security** | ASP.NET Core Identity, JWT (Bearer Token) |
 | **ORM** | Entity Framework Core |
 | **Database** | SQLite / MS SQL Server LocalDB |
