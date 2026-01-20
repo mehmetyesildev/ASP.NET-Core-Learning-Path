@@ -1,19 +1,21 @@
 # 🚀 ASP.NET Core 8.0 - Backend Learning Path
-
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Entity Framework](https://img.shields.io/badge/Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![MVC](https://img.shields.io/badge/Architecture-ASP.NET_MVC-orange?style=for-the-badge)
+![Razor Pages](https://img.shields.io/badge/Architecture-Razor_Pages-ff69b4?style=for-the-badge)
+![Web API](https://img.shields.io/badge/Architecture-Web%20API-blue?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-JWT%20%26%20Identity-green?style=for-the-badge&logo=json-web-tokens)
+![ORM](https://img.shields.io/badge/ORM-Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=nuget&logoColor=white)
+![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-Bu repository, **ASP.NET Core 8** mimarisini, modern web geliştirme tekniklerini ve veritabanı yönetim süreçlerini adım adım öğrenmek amacıyla geliştirdiğim projelerin kaynak kodlarını içerir.
+Bu repository, **ASP.NET Core 8** mimarisini, modern web geliştirme tekniklerini, güvenli API altyapılarını ve veritabanı yönetim süreçlerini adım adım öğrenmek amacıyla geliştirdiğim projelerin kaynak kodlarını içerir.
 
-Projeler, temel **MVC** yapısından başlayarak; form yönetimi, validasyonlar, dosya yükleme işlemleri ve **Entity Framework Core** ile ilişkisel veritabanı mimarisine kadar uzanan teknik bir serüveni kapsar.
+Projeler, temel **MVC** yapısından başlayarak; form yönetimi, validasyonlar, **Razor Pages** mimarisi, **RESTful API** tasarımı ve **JWT (JSON Web Token)** tabanlı güvenlik mimarisine kadar uzanan teknik bir serüveni kapsar.
 
 ---
 
 ## 📂 İçerikteki Projeler ve Teknik Kazanımlar
 
-Bu repo altında, her biri farklı bir yetkinliği hedefleyen 4 ana modül bulunmaktadır:
+Bu repo altında, her biri farklı bir yetkinliği hedefleyen 5 ana modül bulunmaktadır:
 
 ### 1️⃣ Basics & MeetingApp (MVC Temelleri)
 ASP.NET Core dünyasına giriş ve Model-View-Controller (MVC) deseninin kavranması.
@@ -38,6 +40,26 @@ Veri kalıcılığı için **Entity Framework Core** kullanımı ve SQL süreçl
   * **Many-to-Many:** (Örn: Bir Öğrenci çok kursa, bir Kurs çok öğrenciye sahip olabilir.)
 * **LINQ:** Veri sorgulama, filtreleme ve Join işlemleri.
 
+### 4️⃣ ProductAPI (RESTful Servisler & API Güvenliği)
+Modern SPA (Single Page Application) ve Mobil uygulamalar için veri sağlayan güvenli Backend servislerinin inşası.
+* **Rest Architecture:** `[ApiController]` mimarisi ve HTTP Verbs (GET, POST, PUT, DELETE) standartları.
+* **Security (Identity & JWT):**
+  * **ASP.NET Core Identity** ile Kullanıcı Kayıt (Register) ve Giriş (Login) işlemleri.
+  * **JWT (JSON Web Token)** üretimi ve `[Authorize]` attribute ile uç noktaların (Endpoints) korunması.
+* **Data Integrity (DTO):** Entity nesnelerini dış dünyadan gizlemek için **Data Transfer Object** deseninin uygulanması.
+* **Integration & Testing:**
+  * **CORS Policies:** Farklı domainlerden (Client) gelen isteklere izin verilmesi.
+  * **Client Consumption:** JavaScript `Fetch API` kullanılarak yazılmış **Test İstemcisi** ile Token tabanlı veri alışverişi simülasyonu.
+
+### 5️⃣ RazorPagesApp (Mimari Desenler & Repository Pattern)
+MVC desenine alternatif olan sayfa odaklı (Page-Centric) mimarinin kavranması ve kurumsal kodlama standartlarının uygulanması.
+* **Razor Pages Architecture:** Controller olmadan, `PageModel` yapısı ve **Code-Behind** mantığı ile geliştirme.
+* **Repository Design Pattern:** Veri erişim katmanının (Data Access Layer) soyutlanması ve iş mantığından ayrıştırılması.
+* **Dependency Injection (DI) & Lifecycles:**
+  * **Singleton:** Mock verilerle çalışırken RAM tabanlı veri sürekliliği.
+  * **Transient:** SQL Server geçişinde veritabanı bağlantı yönetimi ve yaşam döngüsü yönetimi.
+* **SQL Server Integration:** Entity Framework Core ile Code-First yaklaşımı kullanılarak MSSQL veritabanı entegrasyonu.
+
 ---
 
 ## 🛠️ Teknoloji Yığını (Tech Stack)
@@ -45,11 +67,12 @@ Veri kalıcılığı için **Entity Framework Core** kullanımı ve SQL süreçl
 | Kategori | Teknoloji / Araç |
 |----------|------------------|
 | **Backend** | .NET 8.0, C# 12 |
-| **Framework** | ASP.NET Core MVC |
+| **Architectures** | MVC, Razor Pages, RESTful API |
+| **Security** | ASP.NET Core Identity, JWT (Bearer Token) |
 | **ORM** | Entity Framework Core |
 | **Database** | SQLite / MS SQL Server LocalDB |
-| **Frontend** | Bootstrap 5, HTML5, CSS3 |
-| **IDE & Tools** | Visual Studio Code, Git |
+| **Frontend** | Bootstrap 5, HTML5, Javascript (Fetch API) |
+| **IDE & Tools** | Visual Studio Code, Git, Postman/Swagger |
 
 ---
 
